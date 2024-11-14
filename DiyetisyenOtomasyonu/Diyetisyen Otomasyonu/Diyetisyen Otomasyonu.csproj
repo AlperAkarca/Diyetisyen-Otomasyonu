@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5464A42-BAC8-4D28-ADD8-74BC492CDCF6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp11</RootNamespace>
+    <AssemblyName>WindowsFormsApp11</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Adobe.DocumentServices.PDFTools, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Adobe.DocumentServices.PDFTools.1.3.1\lib\net47\Adobe.DocumentServices.PDFTools.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.21.9.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.21.9\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="jose-jwt, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jose-jwt.2.4.0\lib\net461\jose-jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.5\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.33\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Polly.7.1.0\lib\netstandard2.0\Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.15.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.15.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool, Version=4.0.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.ThreadPool.4.3.0\lib\net46\System.Threading.ThreadPool.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UriTemplate.Core, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UriTemplate.Core.1.0.2\lib\net461\UriTemplate.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DuyuruDanışma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuyuruDanışma.Designer.cs">
+      <DependentUpon>DuyuruDanışma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DuyuruDiyetisyencs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuyuruDiyetisyencs.Designer.cs">
+      <DependentUpon>DuyuruDiyetisyencs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RandevuArama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandevuArama.Designer.cs">
+      <DependentUpon>RandevuArama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDF.Designer.cs">
+      <DependentUpon>PDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Giriş.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giriş.Designer.cs">
+      <DependentUpon>Giriş.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanışmaBilgileriGüncelleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanışmaBilgileriGüncelleme.Designer.cs">
+      <DependentUpon>DanışmaBilgileriGüncelleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Helper.cs" />
+    <Compile Include="Randevuİptal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Randevuİptal.Designer.cs">
+      <DependentUpon>Randevuİptal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RandevuOluşturma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandevuOluşturma.Designer.cs">
+      <DependentUpon>RandevuOluşturma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RandevuGüncelleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandevuGüncelleme.Designer.cs">
+      <DependentUpon>RandevuGüncelleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPaneli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPaneli.Designer.cs">
+      <DependentUpon>AdminPaneli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DuyuruAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuyuruAdmin.Designer.cs">
+      <DependentUpon>DuyuruAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminGüncelleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGüncelleme.Designer.cs">
+      <DependentUpon>AdminGüncelleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DuyuruEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuyuruEkle.Designer.cs">
+      <DependentUpon>DuyuruEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DuyuruSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuyuruSil.Designer.cs">
+      <DependentUpon>DuyuruSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanışmaGüncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanışmaGüncelle.Designer.cs">
+      <DependentUpon>DanışmaGüncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminGiriş.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGiriş.Designer.cs">
+      <DependentUpon>AdminGiriş.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanışmaEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanışmaEkle.Designer.cs">
+      <DependentUpon>DanışmaEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanışmaSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanışmaSil.Designer.cs">
+      <DependentUpon>DanışmaSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiyetisyenGüncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiyetisyenGüncelle.Designer.cs">
+      <DependentUpon>DiyetisyenGüncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiyetisyenEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiyetisyenEkle.Designer.cs">
+      <DependentUpon>DiyetisyenEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiyetisyenSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiyetisyenSil.Designer.cs">
+      <DependentUpon>DiyetisyenSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiyetisyenGiriş.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiyetisyenGiriş.Designer.cs">
+      <DependentUpon>DiyetisyenGiriş.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanışmaGiriş.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanışmaGiriş.Designer.cs">
+      <DependentUpon>DanışmaGiriş.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiyetisyenPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiyetisyenPanel.Designer.cs">
+      <DependentUpon>DiyetisyenPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiyetisyenHesaplama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiyetisyenHesaplama.Designer.cs">
+      <DependentUpon>DiyetisyenHesaplama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanışmaPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanışmaPanel.Designer.cs">
+      <DependentUpon>DanışmaPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiyetisyenHastaPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiyetisyenHastaPanel.Designer.cs">
+      <DependentUpon>DiyetisyenHastaPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiyetisyenBilgileriGüncelleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiyetisyenBilgileriGüncelleme.Designer.cs">
+      <DependentUpon>DiyetisyenBilgileriGüncelleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DuyuruDanışma.resx">
+      <DependentUpon>DuyuruDanışma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuyuruDiyetisyencs.resx">
+      <DependentUpon>DuyuruDiyetisyencs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RandevuArama.resx">
+      <DependentUpon>RandevuArama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDF.resx">
+      <DependentUpon>PDF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Giriş.resx">
+      <DependentUpon>Giriş.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanışmaBilgileriGüncelleme.resx">
+      <DependentUpon>DanışmaBilgileriGüncelleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Randevuİptal.resx">
+      <DependentUpon>Randevuİptal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RandevuOluşturma.resx">
+      <DependentUpon>RandevuOluşturma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RandevuGüncelleme.resx">
+      <DependentUpon>RandevuGüncelleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPaneli.resx">
+      <DependentUpon>AdminPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuyuruAdmin.resx">
+      <DependentUpon>DuyuruAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminGüncelleme.resx">
+      <DependentUpon>AdminGüncelleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuyuruEkle.resx">
+      <DependentUpon>DuyuruEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuyuruSil.resx">
+      <DependentUpon>DuyuruSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanışmaGüncelle.resx">
+      <DependentUpon>DanışmaGüncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminGiriş.resx">
+      <DependentUpon>AdminGiriş.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanışmaEkle.resx">
+      <DependentUpon>DanışmaEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanışmaSil.resx">
+      <DependentUpon>DanışmaSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiyetisyenGüncelle.resx">
+      <DependentUpon>DiyetisyenGüncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiyetisyenEkle.resx">
+      <DependentUpon>DiyetisyenEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiyetisyenSil.resx">
+      <DependentUpon>DiyetisyenSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiyetisyenGiriş.resx">
+      <DependentUpon>DiyetisyenGiriş.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanışmaGiriş.resx">
+      <DependentUpon>DanışmaGiriş.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiyetisyenPanel.resx">
+      <DependentUpon>DiyetisyenPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiyetisyenHesaplama.resx">
+      <DependentUpon>DiyetisyenHesaplama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanışmaPanel.resx">
+      <DependentUpon>DanışmaPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiyetisyenHastaPanel.resx">
+      <DependentUpon>DiyetisyenHastaPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiyetisyenBilgileriGüncelleme.resx">
+      <DependentUpon>DiyetisyenBilgileriGüncelleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\software-engineer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nutritionist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nutritionist1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receptionist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6289f89c1971ae10ce01b98b_green-blue-gradient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2023-03-08 at 20.48.45.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\320140.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receptionist1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ilkay Baseski.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ilkay Baseski1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2023-03-08 at 20.48.451.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-healthy-diet-logo-food-eating-vector-vegetables-5a9b552d3a38a0.5444297915201293252385.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\274-2741878_nutritionist-cliparts-child-nutrition-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nutritionist_1_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran_goruntusu_2023-04-17_230520.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran_goruntusu_2023-04-17_230520_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1ce5a771-22a7-4275-9798-f3c6614ddad6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2023-04-18 at 00.06.33.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2023-04-18 at 00.12.01.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hidden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-buttons.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\add-user-vector-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Admin\106078-uhd-4k-nature-wallpaper-top-free-uhd-4k-nature-background.jpg" />
+    <Content Include="Images\Admin\226f8a1ffac150a778551a9b41d8e588.jpg" />
+    <Content Include="Images\Admin\3052c5d7b6d901571507c56cea3a9400.jpg" />
+    <Content Include="Images\Admin\31193.jpg" />
+    <Content Include="Images\Admin\316124.jpg" />
+    <Content Include="Images\Admin\33333333333.jpg" />
+    <Content Include="Images\Admin\3ec49b0d6a1d0e00f92f34d5613e2a45.jpg" />
+    <Content Include="Images\Admin\4k-bmw-4-series-x44p1lte1sjdpod1.jpg" />
+    <Content Include="Images\Admin\554103-istanbul.jpg" />
+    <Content Include="Images\Admin\55555555555.jpg" />
+    <Content Include="Images\Admin\952147.jpg" />
+    <Content Include="Images\Admin\99999999999.jpg" />
+    <Content Include="Images\Admin\Agacli-Yol.jpg" />
+    <Content Include="Images\Admin\amazing-animal-beautiful-beautifull.jpg" />
+    <Content Include="Images\Admin\audi-r-wallpaper.jpg" />
+    <Content Include="Images\Admin\c936af90fcc423d3ef95cf839da47a1e.jpg" />
+    <Content Include="Images\Admin\car-tesla-motors-tesla-roadster-supercars-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\cool.jpg" />
+    <Content Include="Images\Admin\cumhuriyeti-flag-paint-republic-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\desktop-wallpaper-istanbul-and-backgrounds-turkiye.jpg" />
+    <Content Include="Images\Admin\desktop-wallpaper-summer-nature-ultra-summer %281%29.jpg" />
+    <Content Include="Images\Admin\desktop-wallpaper-summer-nature-ultra-summer.jpg" />
+    <Content Include="Images\Admin\desktop-wallpaper-ultra-nature.jpg" />
+    <Content Include="Images\Admin\dunya-gezegeni-uzay-evren-duvar-kagidi.jpg" />
+    <Content Include="Images\Admin\earth-horizon-4k-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\football-champions-league-champions-league-champions-league-cup-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\forest-nature-rain-tree-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\HD-wallpaper-audi-a5-car.jpg" />
+    <Content Include="Images\Admin\HD-wallpaper-istanbul-turkey.jpg" />
+    <Content Include="Images\Admin\istanbul-4k-night-turkey-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\istockphoto-908981432-170667a.jpg" />
+    <Content Include="Images\Admin\lamborghini-car-lamborghini-aventador-vehicle-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\landscape-nature-lake-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\pexels-hakan-tahmaz-2656502.jpg" />
+    <Content Include="Images\Admin\pexels-hakan-tahmaz-2971172.jpg" />
+    <Content Include="Images\Admin\qibmh5r5hta6g7lp.jpg" />
+    <Content Include="Images\Admin\switzerland-lake-village-blue-water-wallpaper-preview.jpg" />
+    <Content Include="Images\Admin\water-grass-fence-mountain.jpg" />
+    <Content Include="Images\Admin\wp7903380.jpg" />
+    <Content Include="Images\Danışma\106078-uhd-4k-nature-wallpaper-top-free-uhd-4k-nature-background.jpg" />
+    <Content Include="Images\Danışma\226f8a1ffac150a778551a9b41d8e588.jpg" />
+    <Content Include="Images\Danışma\3052c5d7b6d901571507c56cea3a9400.jpg" />
+    <Content Include="Images\Danışma\31193.jpg" />
+    <Content Include="Images\Danışma\316124.jpg" />
+    <Content Include="Images\Danışma\3ec49b0d6a1d0e00f92f34d5613e2a45.jpg" />
+    <Content Include="Images\Danışma\4k-bmw-4-series-x44p1lte1sjdpod1.jpg" />
+    <Content Include="Images\Danışma\554103-istanbul.jpg" />
+    <Content Include="Images\Danışma\952147.jpg" />
+    <Content Include="Images\Danışma\Agacli-Yol.jpg" />
+    <Content Include="Images\Danışma\amazing-animal-beautiful-beautifull.jpg" />
+    <Content Include="Images\Danışma\audi-r-wallpaper.jpg" />
+    <Content Include="Images\Danışma\c936af90fcc423d3ef95cf839da47a1e.jpg" />
+    <Content Include="Images\Danışma\car-tesla-motors-tesla-roadster-supercars-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\cool.jpg" />
+    <Content Include="Images\Danışma\cumhuriyeti-flag-paint-republic-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\desktop-wallpaper-istanbul-and-backgrounds-turkiye.jpg" />
+    <Content Include="Images\Danışma\desktop-wallpaper-summer-nature-ultra-summer %281%29.jpg" />
+    <Content Include="Images\Danışma\desktop-wallpaper-summer-nature-ultra-summer.jpg" />
+    <Content Include="Images\Danışma\desktop-wallpaper-ultra-nature.jpg" />
+    <Content Include="Images\Danışma\dunya-gezegeni-uzay-evren-duvar-kagidi.jpg" />
+    <Content Include="Images\Danışma\earth-horizon-4k-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\football-champions-league-champions-league-champions-league-cup-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\forest-nature-rain-tree-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\HD-wallpaper-audi-a5-car.jpg" />
+    <Content Include="Images\Danışma\HD-wallpaper-istanbul-turkey.jpg" />
+    <Content Include="Images\Danışma\istanbul-4k-night-turkey-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\istockphoto-908981432-170667a.jpg" />
+    <Content Include="Images\Danışma\lamborghini-car-lamborghini-aventador-vehicle-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\landscape-nature-lake-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\pexels-hakan-tahmaz-2656502.jpg" />
+    <Content Include="Images\Danışma\pexels-hakan-tahmaz-2971172.jpg" />
+    <Content Include="Images\Danışma\qibmh5r5hta6g7lp.jpg" />
+    <Content Include="Images\Danışma\switzerland-lake-village-blue-water-wallpaper-preview.jpg" />
+    <Content Include="Images\Danışma\water-grass-fence-mountain.jpg" />
+    <Content Include="Images\Danışma\wp7903380.jpg" />
+    <Content Include="Images\Diyetisyen\106078-uhd-4k-nature-wallpaper-top-free-uhd-4k-nature-background.jpg" />
+    <Content Include="Images\Diyetisyen\226f8a1ffac150a778551a9b41d8e588.jpg" />
+    <Content Include="Images\Diyetisyen\3052c5d7b6d901571507c56cea3a9400.jpg" />
+    <Content Include="Images\Diyetisyen\31193.jpg" />
+    <Content Include="Images\Diyetisyen\316124.jpg" />
+    <Content Include="Images\Diyetisyen\3ec49b0d6a1d0e00f92f34d5613e2a45.jpg" />
+    <Content Include="Images\Diyetisyen\4k-bmw-4-series-x44p1lte1sjdpod1.jpg" />
+    <Content Include="Images\Diyetisyen\554103-istanbul.jpg" />
+    <Content Include="Images\Diyetisyen\952147.jpg" />
+    <Content Include="Images\Diyetisyen\Agacli-Yol.jpg" />
+    <Content Include="Images\Diyetisyen\amazing-animal-beautiful-beautifull.jpg" />
+    <Content Include="Images\Diyetisyen\audi-r-wallpaper.jpg" />
+    <Content Include="Images\Diyetisyen\c936af90fcc423d3ef95cf839da47a1e.jpg" />
+    <Content Include="Images\Diyetisyen\car-tesla-motors-tesla-roadster-supercars-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\cool.jpg" />
+    <Content Include="Images\Diyetisyen\cumhuriyeti-flag-paint-republic-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\desktop-wallpaper-istanbul-and-backgrounds-turkiye.jpg" />
+    <Content Include="Images\Diyetisyen\desktop-wallpaper-summer-nature-ultra-summer %281%29.jpg" />
+    <Content Include="Images\Diyetisyen\desktop-wallpaper-summer-nature-ultra-summer.jpg" />
+    <Content Include="Images\Diyetisyen\desktop-wallpaper-ultra-nature.jpg" />
+    <Content Include="Images\Diyetisyen\dunya-gezegeni-uzay-evren-duvar-kagidi.jpg" />
+    <Content Include="Images\Diyetisyen\earth-horizon-4k-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\football-champions-league-champions-league-champions-league-cup-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\forest-nature-rain-tree-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\HD-wallpaper-audi-a5-car.jpg" />
+    <Content Include="Images\Diyetisyen\HD-wallpaper-istanbul-turkey.jpg" />
+    <Content Include="Images\Diyetisyen\istanbul-4k-night-turkey-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\istockphoto-908981432-170667a.jpg" />
+    <Content Include="Images\Diyetisyen\lamborghini-car-lamborghini-aventador-vehicle-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\landscape-nature-lake-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\pexels-hakan-tahmaz-2656502.jpg" />
+    <Content Include="Images\Diyetisyen\pexels-hakan-tahmaz-2971172.jpg" />
+    <Content Include="Images\Diyetisyen\qibmh5r5hta6g7lp.jpg" />
+    <Content Include="Images\Diyetisyen\switzerland-lake-village-blue-water-wallpaper-preview.jpg" />
+    <Content Include="Images\Diyetisyen\water-grass-fence-mountain.jpg" />
+    <Content Include="Images\Diyetisyen\wp7903380.jpg" />
+    <Content Include="Images\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
